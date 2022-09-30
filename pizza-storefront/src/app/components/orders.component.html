@@ -1,0 +1,22 @@
+<h1>Orders for {{email}}</h1>
+
+<div *ngIf="orderSummaries==null">
+    <div *ngFor="let o of orderSummaries;">
+        <div class="box-it">
+            <h3>There are no orders for this email. Please try again.</h3>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="orderSummaries!==null">
+    <div *ngFor="let o of orderSummaries;">
+        <div class="box-it">
+            <h3>Order Id: {{o.orderId}}</h3>
+            <h5>Total cost: {{o.amount | currency}}</h5>
+        </div>
+    </div>
+</div>
+
+<div>
+    <button type="button" [routerLink]="['/']">Back to Ordering</button>
+</div>
